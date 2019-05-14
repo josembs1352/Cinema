@@ -1,0 +1,37 @@
+
+html,body{
+    height: 100%;
+  
+}
+#inicio{
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom:  40px;
+}
+
+h1{
+    float: left;
+    text-align: center;
+    margin-top: 20px;
+}
+button{
+    padding-left: 20px;
+    margin-left: 30px;
+}
+h2{
+    text-align: center;
+}
+.btn-primary{
+    margin-left: 300px;
+}
+.btn-success{
+    margin-left: 600px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#multi{
+    text-align: center;
+    margin-left: 600px;
+}
