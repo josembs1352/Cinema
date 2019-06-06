@@ -12,7 +12,7 @@ class DataBase {
         $this->usuario = "root";
         $this->contraseña = "";
         $this->servidor = "localhost";
-        $this->nomBD = "cinema";
+        $this->nomBD = "cinema1";
         $this->link = "";
     }
 

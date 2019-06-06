@@ -19,16 +19,14 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Sala` (
   `idSala` INT NOT NULL,
-  `Multiplex_idMultiplex` INT NOT NULL,
+  `idMultiplex` INT NOT NULL,
   `Cantidadfilas` INT NOT NULL,
   `CantidadColumnas` INT NOT NULL,
   `nombre_sala` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idSala`, `Multiplex_idMultiplex`),
+  PRIMARY KEY (`idSala`),
   UNIQUE INDEX `idSala_UNIQUE` (`idSala` ASC),
-  INDEX `fk_Sala_Multiplex1_idx` (`Multiplex_idMultiplex` ASC),
-  CONSTRAINT `fk_Sala_Multiplex1`
-    FOREIGN KEY (`Multiplex_idMultiplex`)
-    REFERENCES `mydb`.`Multiplex` (`idMultiplex`)
+    FOREIGN KEY (`idMultiplex`)
+    REFERENCES `Multiplex` (`idMultiplex`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -39,18 +37,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Silla` (
   `idSillas` INT NOT NULL,
-  `Sala_idSala` INT NOT NULL,
+  `idSala` INT NOT NULL,
   `UbicacionColumna` INT NOT NULL,
   `UbicacionFila` INT NOT NULL,
-  `Estado` TINYINT NOT NULL,
+  `Estado` INT NOT NULL,
   `tipo_silla` VARCHAR(45) NOT NULL,
   `precio_silla` VARCHAR(45) NULL,
-  PRIMARY KEY (`idSillas`, `Sala_idSala`),
+  PRIMARY KEY (`idSillas`),
   UNIQUE INDEX `idSillas_UNIQUE` (`idSillas` ASC),
-  INDEX `fk_Silla_Sala1_idx` (`Sala_idSala` ASC),
-  CONSTRAINT `fk_Silla_Sala1`
-    FOREIGN KEY (`Sala_idSala`)
-    REFERENCES `mydb`.`Sala` (`idSala`)
+    FOREIGN KEY (`idSala`)
+    REFERENCES `Sala` (`idSala`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -89,29 +85,23 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Factura` (
   `idFactura` INT NOT NULL,
-  `Cliente_idCliente` INT NOT NULL,
-  `Silla_idSillas` INT NOT NULL,
-  `Comida_idComida` INT NOT NULL,
+  `idCliente` INT NOT NULL,
+  `idSillas` INT NOT NULL,
+  `idComida` INT NOT NULL,
   `CantidadSillas` INT NOT NULL,
   `CantidadComida` INT NOT NULL,
-  PRIMARY KEY (`idFactura`, `Silla_idSillas`, `Comida_idComida`, `Cliente_idCliente`),
+  PRIMARY KEY (`idFactura`),
   UNIQUE INDEX `idReserva_UNIQUE` (`idFactura` ASC),
-  INDEX `fk_Reserva_Cliente1_idx` (`Cliente_idCliente` ASC),
-  INDEX `fk_Reserva_Silla1_idx` (`Silla_idSillas` ASC),
-  INDEX `fk_Reserva_Comida1_idx` (`Comida_idComida` ASC),
-  CONSTRAINT `fk_Reserva_Cliente1`
-    FOREIGN KEY (`Cliente_idCliente`)
-    REFERENCES `mydb`.`Cliente` (`idCliente`)
+    FOREIGN KEY (`idCliente`)
+    REFERENCES `Cliente` (`idCliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Reserva_Silla1`
-    FOREIGN KEY (`Silla_idSillas`)
-    REFERENCES `mydb`.`Silla` (`idSillas`)
+    FOREIGN KEY (`idSillas`)
+    REFERENCES `Silla` (`idSillas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Reserva_Comida1`
-    FOREIGN KEY (`Comida_idComida`)
-    REFERENCES `mydb`.`Comida` (`idComida`)
+    FOREIGN KEY (`idComida`)
+    REFERENCES `Comida` (`idComida`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -122,17 +112,15 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Empleado` (
   `idEmpleado` INT NOT NULL,
-  `Multiplex_idMultiplex` INT NOT NULL,
+  `idMultiplex` INT NOT NULL,
   `nombre_empleado` VARCHAR(45) NOT NULL,
   `numero_telefono` VARCHAR(45) NOT NULL,
   `fecha_Contrato` VARCHAR(45) NOT NULL,
   `salario` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idEmpleado`, `Multiplex_idMultiplex`),
+  PRIMARY KEY (`idEmpleado`),
   UNIQUE INDEX `idEmpleado_UNIQUE` (`idEmpleado` ASC),
-  INDEX `fk_Empleado_Multiplex1_idx` (`Multiplex_idMultiplex` ASC),
-  CONSTRAINT `fk_Empleado_Multiplex1`
-    FOREIGN KEY (`Multiplex_idMultiplex`)
-    REFERENCES `mydb`.`Multiplex` (`idMultiplex`)
+    FOREIGN KEY (`idMultiplex`)
+    REFERENCES `Multiplex` (`idMultiplex`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -143,21 +131,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Puntos` (
   `idPuntos` INT NOT NULL,
-  `Factura_idFactura` INT NOT NULL,
+  `idFactura` INT NOT NULL,
   `TotalPuntos` INT NOT NULL,
-  `NumDocumento` INT NOT NULL,
-  PRIMARY KEY (`idPuntos`, `Factura_idFactura`),
+  PRIMARY KEY (`idPuntos`),
   UNIQUE INDEX `idPuntos_UNIQUE` (`idPuntos` ASC),
-  INDEX `fk_Puntos_Reserva1_idx` (`Factura_idFactura` ASC),
-  INDEX `fk_Puntos_Cliente1_idx` (`NumDocumento` ASC),
-  CONSTRAINT `fk_Puntos_Reserva1`
-    FOREIGN KEY (`Factura_idFactura`)
-    REFERENCES `mydb`.`Factura` (`idFactura`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Puntos_Cliente1`
-    FOREIGN KEY (`NumDocumento`)
-    REFERENCES `mydb`.`Cliente` (`idCliente`)
+    FOREIGN KEY (`idFactura`)
+    REFERENCES `Factura` (`idFactura`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
