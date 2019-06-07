@@ -21,15 +21,11 @@
                         require_once 'DataBase.php';
                         $db = new DataBase();
                         $db->Conectar();
-                        $res = $db->consultar("Multiplex");
+                        $res = $db->consultar("multiplex","","");
                         while ($row = mysqli_fetch_array($res)) {
                         $idMultiplex = $row[0];
                         $nombre = $row[1];
                         ?>
-                    
-                        
-                   
-                        
                         <div class="button"><span> <a  name="detalle" id="detalle" class="details" href="Salas.php?idMultiplex=<?php echo $idMultiplex; ?>" ><?php echo $nombre ?></a></span></div>
                         <?php } ?>
                     

@@ -17,36 +17,24 @@
                     <div class="card-text">
                         <!--
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-                        
+
                         <h3 class="card-title text-center">Seleccione la silla a reservar </h3>
-                        <form method="post" enctype="multipart/form-data" action="Control.php">
+                        <form method="POST" enctype="multipart/form-data" action="Control.php">
                             <!-- to error: add class "has-danger" -->
 
                             <!--<div class="form-group">-->
 
-                            <br><label for="marca">idSala: </label><br>
-
-                            <select id="idSala" name="idSala" >
+                            <br><label for="marca">Nombre Sala: </label><br>
+                            <label id="nombre_sala" >
                                 <?php
                                 require_once 'DataBase.php';
                                 $db = new DataBase();
                                 $db->Conectar();
-                                $res = $db->consultar("Sala", "idSala");
-                                while ($row = mysqli_fetch_array($res)) {
-                                    echo '<option>';
-                                    echo $row['idSala'];
-                                    echo '</option>';
-                                }
+                                $v1 = $_GET['nombreSala'];
+                                echo $v1;
                                 ?>
-                                <!--                            <option value="value1 ">Activo corriente</option> 
-                                                                <option value="value2 ">Activo fijo</option>
-                                                                <option value="value3 ">Activo financiero</option>
-                                                                <option value="value4 ">Activo intangible</option>
-                                                                <option value="value5 ">Activo subyacente</option>
-                                                                <option value="value6 ">Activo funcional</option>-->
-                            </select><br>
+                            </label>
                             <br>
-
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ubicacion Columna</label>
                                 <input type="text" name="UbicacionColumna" class="form-control form-control-sm" aria-describedby="emailHelp">
@@ -55,26 +43,25 @@
                                 <label for="exampleInputEmail1">Ubicacion Fila</label>
                                 <input type="text" name="UbicacionFila" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
-                            </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Estado</label>
                                 <input type="text" name="Estado" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
-                    </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tipo Silla</label>
                                 <input type="texy" name="tipo_silla" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
-                </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">precio</label>
                                 <input type="text" name="precio_silla" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
-            <input id="RegistrarSilla" name="RegistrarSilla" onclick="location='ClienteFactura.php'"type="submit" class="btn btn-primary btn-block" value="registrarSilla">
+                            
+                            <input id="RegistrarSilla" name="RegistrarSilla" onclick="location = 'ClienteFactura.php'"type="submit" class="btn btn-primary btn-block" value="registrarSilla">
                             <button type="button" class="btn btn-primary btn-block" onclick="location = 'index.php'" id="reEmpleado">Volver</button>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </body>       
+</html>

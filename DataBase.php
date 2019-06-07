@@ -10,9 +10,9 @@ class DataBase {
 
     function DataBase() {
         $this->usuario = "root";
-        $this->contraseña = "";
+        $this->contraseña = "12345";
         $this->servidor = "localhost";
-        $this->nomBD = "cinema1";
+        $this->nomBD = "cinema";
         $this->link = "";
     }
 

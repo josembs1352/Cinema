@@ -4,7 +4,7 @@ $idMultiplex = $_GET['idMultiplex'];
 require'DataBase.php';
 $db = new DataBase();
 $db->conectar();
-$rec = $db->consultar("Multiplex", "idMultiplex", $idMultiplex);
+$rec = $db->consultar("multiplex", "idMultiplex", $idMultiplex);
 while ($row = mysqli_fetch_array($rec)) {
     $idMultiplex = $row[0];
     $nombre_multiplex = $row[1];
@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_array($rec)) {
                         require_once 'DataBase.php';
                         $db = new DataBase();
                         $db->conectar();
-                        $rec = $db->consultar("Sala", "idMultiplex", $idMultiplex);
+                        $rec = $db->consultar("sala", "Multiplex_idMultiplex", $idMultiplex);
                         while ($row = mysqli_fetch_array($rec)) {
                             $idSala = $row[0];
                             $idMultiplex = $row[1];
@@ -39,7 +39,7 @@ while ($row = mysqli_fetch_array($rec)) {
                             $nombre_sala = $row[4];                         
                             ?>
                             
-                        <button type="button" onclick="location='Sillas.php'" class="btn-success"><?php echo $nombre_sala ?></button>
+                        <button type="button" onclick="location='Sillas.php?nombreSala=<?php echo $nombre_sala; ?>'" class="btn-success"><?php echo $nombre_sala ?></button>
                             
                         <?php } ?>
                     </div>
