@@ -56,7 +56,7 @@
                                 <input type="text" name="precio_silla" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
                             
-                            <input id="RegistrarSilla" name="RegistrarSilla" onclick="location = 'ClienteFactura.php'"type="submit" class="btn btn-primary btn-block" value="registrarSilla">
+                            <input id="RegistrarSilla" name="RegistrarSilla" onclick="location = 'ClienteFactura.php'" type="submit" class="btn btn-primary btn-block" value="registrarSilla">
                             <button type="button" class="btn btn-primary btn-block" onclick="location = 'index.php'" id="reEmpleado">Volver</button>
                         </form>
                     </div>

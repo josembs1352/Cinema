@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_array($rec)) {
                         require_once 'DataBase.php';
                         $db = new DataBase();
                         $db->conectar();
-                        $rec = $db->consultar("sala", "Multiplex_idMultiplex", $idMultiplex);
+                        $rec = $db->consultar("sala", "idMultiplex", $idMultiplex);
                         while ($row = mysqli_fetch_array($rec)) {
                             $idSala = $row[0];
                             $idMultiplex = $row[1];

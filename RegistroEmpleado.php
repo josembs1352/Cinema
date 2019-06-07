@@ -29,7 +29,7 @@
                                 require_once 'DataBase.php';
                                 $db=new DataBase();
                                 $db->Conectar();
-                                $res=$db->consultar("Multiplex","idMultiplex");
+                                $res=$db->consultar("Multiplex","idMultiplex","");
                                 while($row=  mysqli_fetch_array($res)){
                                     echo '<option>';
                                     echo $row['idMultiplex'];

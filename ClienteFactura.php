@@ -42,7 +42,7 @@
                                 <label for="exampleInputEmail1">tipo_cliente</label>
                                 <input type="text" name="tipo_cliente" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
-                            <input id="RegistrarEmpleado" name="RegistrarCliente" type="submit" class="btn btn-primary btn-block" value="registrar">
+                            <input id="RegistrarEmpleado" name="RegistrarCliente"  type="submit" class="btn btn-primary btn-block" value="registrar">
 
                         </form>
                         <h3 class="card-title text-center">Datos de la Factura</h3>
@@ -51,19 +51,17 @@
 
                             <!--<div class="form-group">-->
 
-                            <br><label for="marca">idCliente: </label><br>
+                            <br><label for="marca">Nombre Del Cliente: </label><br>
 
-                            <select id="idCliente" name="idCliente" >
+                            <label id="idCliente" name="idCliente" >
                                 <?php
                                 require_once 'DataBase.php';
                                 $db = new DataBase();
                                 $db->Conectar();
-                                $res = $db->consultar("Cliente", "idCliente");
-                                while ($row = mysqli_fetch_array($res)) {
-                                    echo '<option>';
-                                    echo $row['idCliente'];
-                                    echo '</option>';
-                                }
+                                $documento = $_GET['documento'];
+                                $rec = $db->consultar("cliente","NumDocumento",$documento);
+                                $row = mysqli_fetch_array($rec);
+                                echo $row[2];
                                 ?>
                                 <!--                            <option value="value1 ">Activo corriente</option> 
                                                                 <option value="value2 ">Activo fijo</option>
@@ -71,16 +69,15 @@
                                                                 <option value="value4 ">Activo intangible</option>
                                                                 <option value="value5 ">Activo subyacente</option>
                                                                 <option value="value6 ">Activo funcional</option>-->
-                            </select><br>
-                            <br>
-                            <br><label for="marca">idSilla: </label><br>
+                            </label><br><br>
+                            <label for="marca">idSilla: </label><br>
 
                             <select id="idSillas" name="idSillas" >
                                 <?php
                                 require_once 'DataBase.php';
                                 $db = new DataBase();
                                 $db->Conectar();
-                                $res = $db->consultar("Silla", "idSillas");
+                                $res = $db->consultar("silla", "idSillas");
                                 while ($row = mysqli_fetch_array($res)) {
                                     echo '<option>';
                                     echo $row['idSillas'];
@@ -102,7 +99,7 @@
                                 require_once 'DataBase.php';
                                 $db = new DataBase();
                                 $db->Conectar();
-                                $res = $db->consultar("Comida", "idComida");
+                                $res = $db->consultar("comida", "idComida");
                                 while ($row = mysqli_fetch_array($res)) {
                                     echo '<option>';
                                     echo $row['idComida'];

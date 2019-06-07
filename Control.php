@@ -11,8 +11,8 @@ if (isset($_POST['RegistrarEmpleado'])) {
 if (isset($_POST['RegistrarCliente'])) {
     $db = new DataBase();
     $db->Conectar();
-    $db->insertar(array(1, $_POST['NumDocumento'], $_POST['Nombres'], $_POST['Telefono'], $_POST['direccion'], $_POST['tipo_cliente']), "Cliente");
-    require_once 'ClienteFactura.php';
+    $db->insertar(array(0, $_POST['NumDocumento'], $_POST['Nombres'], $_POST['Telefono'], $_POST['direccion'], $_POST['tipo_cliente']), "Cliente");
+    header('Location: ClienteFactura.php?documento='.$_POST['NumDocumento']);
 }
 
 if (isset($_POST['RegistrarFactura'])) {
@@ -29,7 +29,8 @@ if (isset($_POST['RegistrarSilla'])) {
     $recs = $db->consultar("sala", $sal, "");
     $row = mysqli_fetch_array($recs);
         $idSala = $row[0];
-    $db->insertar(array(7, $idSala, $_POST['UbicacionColumna'], $_POST['UbicacionFila'], $_POST['Estado'], $_POST['tipo_silla'], $_POST['precio_silla']), "silla");
-    require_once 'ClienteFactura.php';
+    $db->insertar(array(0, $idSala, $_POST['UbicacionColumna'], $_POST['UbicacionFila'], $_POST['Estado'], $_POST['tipo_silla'], $_POST['precio_silla']), "silla");
+    header('Location: ClienteFactura.php');
+//    require_once 'ClienteFactura.php';
 }
 ?>
