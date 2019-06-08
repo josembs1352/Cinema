@@ -28,6 +28,7 @@
                                 <label for="exampleInputEmail1">Cedula De Ciudadania</label>
                                 <input type="number" name="Cedula" class="form-control form-control-sm" aria-describedby="Cedula">
                             </div>
+                            
 
                             <br><label for="marca">Nombre Sala: </label><br>
                             <label id="nombre_sala" >

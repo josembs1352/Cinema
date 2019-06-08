@@ -13,34 +13,6 @@
             <div class="card login-form">
                 <div class="card-body">
                     <h3 class="card-title text-center">Benvenido a cinema Unimonito</h3>
-                    <h3 class="card-title text-center">Ingrese La informacion del Cliente</h3>
-                    <div class="card-text">
-                        <!--
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-                        <form method="post" enctype="multipart/form-data" action="Control.php">
-
-                            <br>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Numero de Documento</label>
-                                <input type="number" name="NumDocumento" class="form-control form-control-sm"  aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nombre</label>
-                                <input type="text" name="Nombres" class="form-control form-control-sm"  aria-describedby="emailHelp">
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="exampleInputEmail1">Telefono</label>
-                                <input type="number" name="Telefono" class="form-control form-control-sm" aria-describedby="emailHelp">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Direccion</label>
-                                <input type="text" name="direccion" class="form-control form-control-sm" aria-describedby="emailHelp">
-                            </div>
-                            <input id="RegistrarEmpleado" name="RegistrarCliente"  type="submit" class="btn btn-primary btn-block" value="registrar">
-
-                        </form>
                         <h3 class="card-title text-center">Datos de la Factura</h3>
                         <form method="post" enctype="multipart/form-data" action="Control.php">
                             <!-- to error: add class "has-danger" -->
@@ -54,8 +26,8 @@
                                 require_once 'DataBase.php';
                                 $db = new DataBase();
                                 $db->Conectar();
-                                $documento = $_GET['idCliente'];
-                                $rec = $db->consultar("cliente","NumDocumento",$documento);
+                                $idCliente = $_GET['Cedula'];
+                                $rec = $db->consultar("cliente", "idCliente", $idCliente);
                                 $row = mysqli_fetch_array($rec);
                                 echo $row[2];
                                 ?>
@@ -125,3 +97,5 @@
                 </div>
             </div>
         </div>
+    </body>
+</html>

@@ -11,6 +11,7 @@
     <body>
         <div id="inicio">
             <h1>Bienvenido a cine Unimonito</h1>
+             <button type="button" class="btn btn-primary" onclick="location = 'CrearCliente.php'">Registro Cliente</button>
             <button type="button" class="btn btn-primary" onclick="location = 'RegistroEmpleado.php'">Registro Empleado</button>
 
             <br><br><div>
