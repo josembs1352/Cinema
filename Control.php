@@ -59,21 +59,7 @@ if (isset($_POST['RegistrarSilla'])) {
 if (isset($_POST['actulizarDatos'])) {
     $db = new DataBase();
     $db->conectar();
-    
-    $nombre = isset($_POST['empleado']) ? $_POST['empleado'] : null;
-    $mod = $db->consultar("empleado","nombre_empleado",$nombre);
-    $row3 = mysqli_fetch_array($mod);
-    $idEmpleado = $row3[0];
-    echo $idEmpleado;
-    
-
-    $Multiplex = isset($_POST['Multiplex']) ? $_POST['Multiplex'] : null;
-    $Mult = $db->consultar("multiplex","nombre_multiplex",$Multiplex);
-    $row4 = mysqli_fetch_array($Mult);
-    $seMultiplex = $row4[0];
-    echo $seMultiplex;
-
-    $db->modificar($idEmpleado, array($seMultiplex, $_POST['salario']), "empleado");
+    $db->modificar($_POST['empleado'], array($_POST['Multiplex'], $_POST['salario']), "empleado");
     echo ' <script language="javascript">Actualizado("Yes");</script>';
     include 'ListaEmpleados.php';
 }

@@ -54,36 +54,24 @@
                                     <form method="POST" action="Control.php" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-md-7">
-                                                    Id Empleado: 
-                                                    <select name="empleado" >
-                                                        <?php
-                                                        require_once 'DataBase.php';
-                                                        $db = new DataBase();
-                                                        $db->Conectar();
-                                                        $res = $db->consultar("empleado", "nombre_empleado");
-                                                        while ($row = mysqli_fetch_array($res)) {
-                                                            echo '<option>';
-                                                            echo $row['nombre_empleado'];
-                                                            echo '</option>';
-                                                        }
-                                                        ?>
-                                                    </select><br>
-                                                    Multiplex:
-                                                    <select name="Multiplex" >
-                                                        <?php
-                                                        require_once 'DataBase.php';
-                                                        $db = new DataBase();
-                                                        $db->Conectar();
-                                                        $res = $db->consultar("multiplex", "nombre_multiplex");
-                                                        while ($row = mysqli_fetch_array($res)) {
-                                                            echo '<option>';
-                                                            echo $row['nombre_multiplex'];
-                                                            echo '</option>';
-                                                        }
-                                                        ?>
-                                                    </select><br>
-                                                    Salario: <input type="number" name="salario" id="salario"  class="salario">
-                                                    <input type="submit" name="actulizarDatos" id="actulizarDatos" value="Actualizar Datos" class="form-control">
+                                                Id Empleado: <input type="number" name="empleado" id="empleado"  class="empleado"><br>                                         
+                                                Modificar Multiplex:
+                                                <select name="Multiplex" id="Multiplex" >
+                                                    <?php
+                                                    require_once 'DataBase.php';
+                                                    $db = new DataBase();
+                                                    $db->Conectar();
+                                                    $res = $db->consultar("multiplex");
+                                                    while ($row = mysqli_fetch_array($res)) {
+                                                        echo '<option>';
+                                                        echo $row[0];
+                                                        echo '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <br>
+                                                Salario: <input type="number" name="salario" id="salario"  class="salario">
+                                                <input type="submit" name="actulizarDatos" id="actulizarDatos" value="Actualizar Datos" class="form-control">
                                             </div>
                                         </div>
                                     </form>
