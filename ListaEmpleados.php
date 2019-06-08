@@ -31,7 +31,7 @@
                                     require_once 'DataBase.php';
                                     $db = new DataBase();
                                     $db->conectar();
-                                    $rec = $db->consultar("Empleado");
+                                    $rec = $db->consultar("empleado");
                                     while ($row = mysqli_fetch_array($rec)) {
                                         ?>
                                         <tr class="odd gradeX">
@@ -54,12 +54,12 @@
                                     <form method="post" action="Control.php" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-md-7">
-                                                    Id Empleado: <select id="rest" name="empleado" >
+                                                    Id Empleado: <select id="empleado" name="empleado" >
                                                         <?php
                                                         require_once 'DataBase.php';
                                                         $db = new DataBase();
                                                         $db->Conectar();
-                                                        $res = $db->consultar("Empleado", "nombre_empleado");
+                                                        $res = $db->consultar("empleado", "nombre_empleado");
                                                         while ($row = mysqli_fetch_array($res)) {
                                                             echo '<option>';
                                                             echo $row['nombre_empleado'];
@@ -72,7 +72,7 @@
                                                         require_once 'DataBase.php';
                                                         $db = new DataBase();
                                                         $db->Conectar();
-                                                        $res = $db->consultar("Multiplex", "nombre_multiplex");
+                                                        $res = $db->consultar("multiplex", "nombre_multiplex");
                                                         while ($row = mysqli_fetch_array($res)) {
                                                             echo '<option>';
                                                             echo $row['nombre_multiplex'];

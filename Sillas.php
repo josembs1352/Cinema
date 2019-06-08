@@ -24,6 +24,11 @@
 
                             <!--<div class="form-group">-->
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Cedula De Ciudadania</label>
+                                <input type="number" name="Cedula" class="form-control form-control-sm" aria-describedby="Cedula">
+                            </div>
+
                             <br><label for="marca">Nombre Sala: </label><br>
                             <label id="nombre_sala" >
                                 <?php
@@ -55,7 +60,7 @@
                                 <label for="exampleInputEmail1">precio</label>
                                 <input type="text" name="precio_silla" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
-                            
+
                             <input id="RegistrarSilla" name="RegistrarSilla" onclick="location = 'ClienteFactura.php'" type="submit" class="btn btn-primary btn-block" value="registrarSilla">
                             <button type="button" class="btn btn-primary btn-block" onclick="location = 'index.php'" id="reEmpleado">Volver</button>
                         </form>

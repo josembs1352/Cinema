@@ -12,7 +12,7 @@ if (isset($_POST['RegistrarCliente'])) {
     $db = new DataBase();
     $db->Conectar();
     $db->insertar(array(0, $_POST['NumDocumento'], $_POST['Nombres'], $_POST['Telefono'], $_POST['direccion'], $_POST['tipo_cliente']), "Cliente");
-    header('Location: ClienteFactura.php?documento='.$_POST['NumDocumento']);
+    header('Location: ClienteFactura.php?documento=' . $_POST['NumDocumento']);
 }
 
 if (isset($_POST['RegistrarFactura'])) {
@@ -25,12 +25,19 @@ if (isset($_POST['RegistrarFactura'])) {
 if (isset($_POST['RegistrarSilla'])) {
     $db = new DataBase();
     $db->Conectar();
-    $sal = $nombre = isset($_POST['nombre_sala']) ? $_POST['nombre_sala'] : null ;
+
+    $sal1 = $nombre = isset($_POST['Cedula']) ? $_POST['Cedula'] : null;
+    $recss = $db->consultar("cliente","NumDocumento" , $sal1);
+    $row1 = mysqli_fetch_array($recss);
+    $idCedula = $row1[0];
+
+    $sal = $nombre = isset($_POST['nombre_sala']) ? $_POST['nombre_sala'] : null;
     $recs = $db->consultar("sala", $sal, "");
     $row = mysqli_fetch_array($recs);
-        $idSala = $row[0];
-    $db->insertar(array(0, $idSala, $_POST['UbicacionColumna'], $_POST['UbicacionFila'], $_POST['Estado'], $_POST['tipo_silla'], $_POST['precio_silla']), "silla");
-    header('Location: ClienteFactura.php');
+    $idSala = $row[0];
+
+    $db->insertar(array(0, $idSala, $idCedula, $_POST['UbicacionColumna'], $_POST['UbicacionFila'], $_POST['Estado'], $_POST['tipo_silla'], $_POST['precio_silla']), "silla");
+    header('Location: ClienteFactura.php?Cedula='.$idCedula);
 //    require_once 'ClienteFactura.php';
 }
 if (isset($_POST['actualizarDatos'])) {

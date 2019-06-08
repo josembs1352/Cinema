@@ -10,9 +10,9 @@ class DataBase {
 
     function DataBase() {
         $this->usuario = "root";
-        $this->contraseña = "";
+        $this->contraseña = "12345";
         $this->servidor = "localhost";
-        $this->nomBD = "cinema1";
+        $this->nomBD = "cinema";
         $this->link = "";
     }
 
@@ -48,7 +48,7 @@ class DataBase {
         return $res;
     }
   function modificar($idEmpleado = "", $fila = array(), $tabla = "") {
-        mysqli_query($this->link,"update " . $tabla . " SET idMultiplex ='" . $fila[0] . "' WHERE idMultiplex = '" . $idEmpleado . "';")or die("La consulta falló " . mysql_error());
-        mysqli_query($this->link,"update " . $tabla . " SET salario ='" . $fila[4] . "' WHERE salario = '" . $idEmpleado . "';")or die("La consulta falló " . mysql_error());
+        mysqli_query($this->link,"update " . $tabla . " SET idMultiplex ='" . $fila[0] . "' WHERE idEmpleado = '" . $idEmpleado . "';")or die("La consulta falló " . mysql_error());
+        mysqli_query($this->link,"update " . $tabla . " SET salario ='" . $fila[4] . "' WHERE idEmpleado = '" . $idEmpleado . "';")or die("La consulta falló " . mysql_error());
     }
 }
