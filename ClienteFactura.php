@@ -99,10 +99,10 @@
                                 require_once 'DataBase.php';
                                 $db = new DataBase();
                                 $db->Conectar();
-                                $res = $db->consultar("comida", "idComida");
+                                $res = $db->consultar("comida");
                                 while ($row = mysqli_fetch_array($res)) {
                                     echo '<option>';
-                                    echo $row['idComida'];
+                                    echo $row[1];
                                     echo '</option>';
                                 }
                                 ?>
