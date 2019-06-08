@@ -51,10 +51,11 @@
                             <div class="card login-form">
                                 <div class="card-body">
                                     <h1 class="page-header"> Actualizar Empleado </h1>
-                                    <form method="post" action="Control.php" enctype="multipart/form-data">
+                                    <form method="POST" action="Control.php" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-md-7">
-                                                    Id Empleado: <select id="empleado" name="empleado" >
+                                                    Id Empleado: 
+                                                    <select name="empleado" >
                                                         <?php
                                                         require_once 'DataBase.php';
                                                         $db = new DataBase();
@@ -67,7 +68,8 @@
                                                         }
                                                         ?>
                                                     </select><br>
-                                                    Multiplex:<select id="Multiplex" name="Multipex" >
+                                                    Multiplex:
+                                                    <select name="Multiplex" >
                                                         <?php
                                                         require_once 'DataBase.php';
                                                         $db = new DataBase();
@@ -81,7 +83,7 @@
                                                         ?>
                                                     </select><br>
                                                     Salario: <input type="number" name="salario" id="salario"  class="salario">
-                                                    <input type="submit" name="actulizarDatos" id="actualizarDatos" value="Actualizar Datos" onclick="location'ListaEmpleados.php'" class="form-control">
+                                                    <input type="submit" name="actulizarDatos" id="actulizarDatos" value="Actualizar Datos" class="form-control">
                                             </div>
                                         </div>
                                     </form>

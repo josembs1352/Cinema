@@ -13,6 +13,7 @@
             <div class="card login-form">
                 <div class="card-body">
                     <h3 class="card-title text-center">Benvenido a cinema Unimonito</h3>
+                    
                         <h3 class="card-title text-center">Datos de la Factura</h3>
                         <form method="post" enctype="multipart/form-data" action="Control.php">
                             <!-- to error: add class "has-danger" -->
@@ -60,7 +61,7 @@
                                                                 <option value="value6 ">Activo funcional</option>-->
                             </select><br>
 
-                            <br><label for="marca">idComida: </label><br>
+                            <br><label for="marca">Nombre Producto: </label><br>
 
                             <select id="idComida" name="idComida" >
                                 <?php
