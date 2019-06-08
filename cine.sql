@@ -174,8 +174,8 @@ CREATE TABLE `silla` (
   `idSillas` int(11) NOT NULL,
   `idSala` int(11) NOT NULL,
   `idCliente` int(11) NOT NULL,
-  `UbicacionColumna` int(11) NOT NULL,
-  `UbicacionFila` int(11) NOT NULL,
+  `UbicacionColumna` varchar(45) NOT NULL,
+  `UbicacionFila` varchar(45) NOT NULL,
   `Estado` int(11) NOT NULL,
   `tipo_silla` varchar(45) NOT NULL,
   `precio_silla` int(11) NOT NULL
