@@ -25,8 +25,7 @@ CREATE TABLE Cliente (
   NumDocumento INT NOT NULL,
   Nombres VARCHAR(45) NOT NULL,
   Telefono INT NOT NULL,
-  direccion VARCHAR(45) NOT NULL,
-  tipo_cliente VARCHAR(45) NOT NULL);
+  direccion VARCHAR(45) NOT NULL);
   
 CREATE TABLE Comida (
   idComida INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

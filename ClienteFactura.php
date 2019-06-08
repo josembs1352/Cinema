@@ -38,10 +38,6 @@
                                 <label for="exampleInputEmail1">Direccion</label>
                                 <input type="text" name="direccion" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">tipo_cliente</label>
-                                <input type="text" name="tipo_cliente" class="form-control form-control-sm" aria-describedby="emailHelp">
-                            </div>
                             <input id="RegistrarEmpleado" name="RegistrarCliente"  type="submit" class="btn btn-primary btn-block" value="registrar">
 
                         </form>
