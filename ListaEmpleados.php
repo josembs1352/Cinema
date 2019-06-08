@@ -42,13 +42,52 @@
                                             echo "<td>$row[3]</td>";
                                             echo "<td>$row[4]</td>";
                                             echo "<td>$row[5]</td>";
-                                            
                                             ?>
                                         <?php } ?>
                                     </tr>
                                 </tbody>
                         </table>
-
+                        <div class="global-container">
+                            <div class="card login-form">
+                                <div class="card-body">
+                                    <h1 class="page-header"> Actualizar Empleado </h1>
+                                    <form method="post" action="Control.php" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                    Id Empleado: <select id="rest" name="empleado" >
+                                                        <?php
+                                                        require_once 'DataBase.php';
+                                                        $db = new DataBase();
+                                                        $db->Conectar();
+                                                        $res = $db->consultar("Empleado", "nombre_empleado");
+                                                        while ($row = mysqli_fetch_array($res)) {
+                                                            echo '<option>';
+                                                            echo $row['nombre_empleado'];
+                                                            echo '</option>';
+                                                        }
+                                                        ?>
+                                                    </select><br>
+                                                    Multiplex:<select id="Multiplex" name="Multipex" >
+                                                        <?php
+                                                        require_once 'DataBase.php';
+                                                        $db = new DataBase();
+                                                        $db->Conectar();
+                                                        $res = $db->consultar("Multiplex", "nombre_multiplex");
+                                                        while ($row = mysqli_fetch_array($res)) {
+                                                            echo '<option>';
+                                                            echo $row['nombre_multiplex'];
+                                                            echo '</option>';
+                                                        }
+                                                        ?>
+                                                    </select><br>
+                                                    Salario: <input type="number" name="salario" id="salario"  class="salario">
+                                                    <input type="submit" name="actulizarDatos" id="actualizarDatos" value="Actualizar Datos" onclick="location'ListaEmpleados.php'" class="form-control">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
