@@ -15,7 +15,7 @@ if (isset($_POST['RegistrarEmpleado'])) {
 if (isset($_POST['RegistrarCliente'])) {
     $db = new DataBase();
     $db->Conectar();
-    $db->insertar(array(0, $_POST['NumDocumento'], $_POST['Nombres'], $_POST['Telefono'], $_POST['direccion'], $_POST['tipo_cliente']), "Cliente");
+    $db->insertar(array(0, $_POST['NumDocumento'], $_POST['Nombres'], $_POST['Telefono'], $_POST['direccion']), "Cliente");
     header('Location: ClienteFactura.php?documento=' . $_POST['NumDocumento']);
 }
 
