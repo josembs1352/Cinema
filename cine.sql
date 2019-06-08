@@ -13,8 +13,8 @@ CREATE TABLE Sala (
 CREATE TABLE Silla (
   idSillas INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   idSala INT NOT NULL,
-  UbicacionColumna INT NOT NULL,
-  UbicacionFila INT NOT NULL,
+  UbicacionColumna VARCHAR(45) NOT NULL,
+  UbicacionFila VARCHAR(45) NOT NULL,
   Estado INT NOT NULL,
   tipo_silla VARCHAR(45) NOT NULL,
   precio_silla INT NOT NULL,

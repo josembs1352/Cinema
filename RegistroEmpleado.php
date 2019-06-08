@@ -29,10 +29,10 @@
                                 require_once 'DataBase.php';
                                 $db=new DataBase();
                                 $db->Conectar();
-                                $res=$db->consultar("Multiplex","idMultiplex","");
+                                $res=$db->consultar("Multiplex","nombre_multiplex","");
                                 while($row=  mysqli_fetch_array($res)){
                                     echo '<option>';
-                                    echo $row['idMultiplex'];
+                                    echo $row['nombre_multiplex'];
                                     echo '</option>';
                                 }
                                 ?>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Fecha Contrato </label>
-                                <input type="text" name="fecha_Contrato" class="form-control form-control-sm" aria-describedby="emailHelp">
+                                <input type="date" name="fecha_Contrato" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Salario</label>

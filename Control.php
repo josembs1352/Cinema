@@ -37,6 +37,6 @@ if (isset($_POST['actualizarDatos'])) {
     $db = new DataBase();
     $db->conectar();
     $db->modificar($_GET['idEmpleado'], array($_POST['idMultiplex'], $_POST['salario']), "Empleado");
-    include 'ListaEmpleados.php';
+    header('Location: ListaEmpleados.php?idEmpleado='.$_POST['idEmpleado']);
 }
 ?>
