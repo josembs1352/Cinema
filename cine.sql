@@ -40,12 +40,12 @@ CREATE TABLE `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idCliente`, `NumDocumento`, `Nombres`, `Telefono`, `direccion`, `tipo_cliente`) VALUES
-(11, 2147483647, 'Juan de Arco', 2147483647, 'Cra 100 #40 -30 sur', 'Frecuente'),
-(12, 2147483647, 'Juan de Arco', 2147483647, 'Cra 100 #40 -30 sur', 'Frecuente'),
-(13, 37387, 'Juan de Arco', 687989089, 'Cra 100 #40 -30 sur', 'Frecuente'),
-(14, 1030670361, 'Carlos Mauricio Pinilla', 3289567, 'Cra 100 #40 -30 sur', 'Frecuente'),
-(15, 192847433, 'Juan de Arco', 2108912809, '1897378', 'Frecuente');
+INSERT INTO `cliente` (`idCliente`, `NumDocumento`, `Nombres`, `Telefono`, `direccion`) VALUES
+(11, 2147483647, 'Juan de Arco', 2147483647, 'Cra 100 #40 -30 sur'),
+(12, 2147483647, 'Juan de Arco', 2147483647, 'Cra 100 #40 -30 sur'),
+(13, 37387, 'Juan de Arco', 687989089, 'Cra 100 #40 -30 sur'),
+(14, 1030670361, 'Carlos Mauricio Pinilla', 3289567, 'Cra 100 #40 -30 sur'),
+(15, 192847433, 'Juan de Arco', 2108912809, '1897378');
 
 -- --------------------------------------------------------
 
@@ -184,9 +184,6 @@ CREATE TABLE `silla` (
 -- Volcado de datos para la tabla `silla`
 --
 
-INSERT INTO `silla` (`idSillas`, `idSala`, `idCliente`, `UbicacionColumna`, `UbicacionFila`, `Estado`, `tipo_silla`, `precio_silla`) VALUES
-(6, 1, 14, 3, 1, 0, 'Profesional', 12000),
-(7, 1, 14, 3, 1, 0, 'Profesional', 500000);
 
 --
 -- Índices para tablas volcadas
