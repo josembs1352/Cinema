@@ -4,7 +4,11 @@ require 'DataBase.php';
 if (isset($_POST['RegistrarEmpleado'])) {
     $db = new DataBase();
     $db->Conectar();
-    $db->insertar(array(0, $_POST['idMultiplex'], $_POST['nombre_empleado'], $_POST['numero_telefono'], $_POST['fecha_Contrato'], $_POST['salario']), "Empleado");
+    $sal = $nombre = isset($_POST['nombre_mutiplex']) ? $_POST['nombre_multiplex'] : null ;
+    $recs = $db->consultar("Multiplex", $sal, "");
+    $row = mysqli_fetch_array($recs);
+        $idMultiplex = $row[0];
+    $db->insertar(array(0, $idMultiplex, $_POST['nombre_empleado'], $_POST['numero_telefono'], $_POST['fecha_Contrato'], $_POST['salario']), "Empleado");
     require_once 'index.php';
 }
 
@@ -44,6 +48,6 @@ if (isset($_POST['actualizarDatos'])) {
     $db = new DataBase();
     $db->conectar();
     $db->modificar($_GET['idEmpleado'], array($_POST['idMultiplex'], $_POST['salario']), "Empleado");
-    include 'ListaEmpleados.php';
+    header('Location: ListaEmpleados.php?idEmpleado='.$_POST['idEmpleado']);
 }
 ?>

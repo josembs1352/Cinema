@@ -38,10 +38,6 @@
                                 <label for="exampleInputEmail1">Direccion</label>
                                 <input type="text" name="direccion" class="form-control form-control-sm" aria-describedby="emailHelp">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">tipo_cliente</label>
-                                <input type="text" name="tipo_cliente" class="form-control form-control-sm" aria-describedby="emailHelp">
-                            </div>
                             <input id="RegistrarEmpleado" name="RegistrarCliente"  type="submit" class="btn btn-primary btn-block" value="registrar">
 
                         </form>
@@ -58,7 +54,7 @@
                                 require_once 'DataBase.php';
                                 $db = new DataBase();
                                 $db->Conectar();
-                                $documento = $_GET['documento'];
+                                $documento = $_GET['idCliente'];
                                 $rec = $db->consultar("cliente","NumDocumento",$documento);
                                 $row = mysqli_fetch_array($rec);
                                 echo $row[2];
@@ -70,7 +66,7 @@
                                                                 <option value="value5 ">Activo subyacente</option>
                                                                 <option value="value6 ">Activo funcional</option>-->
                             </label><br><br>
-                            <label for="marca">idSilla: </label><br>
+                            <label for="marca">Posicion Silla: </label><br>
 
                             <select id="idSillas" name="idSillas" >
                                 <?php
